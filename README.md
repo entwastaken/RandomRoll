@@ -1,5 +1,5 @@
 # RandomRoll
-simple plugin to roll random integers for stuff like roulettes and lotteries. primarily made for AcornMC
+simple plugin to roll random integers for stuff like roulettes and lotteries. outputs the result in chat.
 
 # Commands
 
