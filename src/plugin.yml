@@ -1,6 +1,6 @@
 main: me.ent.Roll.Main
 name: entsRandomRoll
-version: 1.0.0
+version: 1.0.1
 author: ent (https://www.spigotmc.org/members/reality.310769)
 api-version: 1.16
 

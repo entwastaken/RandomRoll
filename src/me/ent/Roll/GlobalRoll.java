@@ -37,15 +37,15 @@ public class GlobalRoll implements CommandExecutor  {
 				
 				if (args.length == 2) {
 					if (isNum(args[0]) && isNum(args[1])) {
-						if (Integer.parseInt(args[0]) > Integer.parseInt(args[1])) {
 							minval = Integer.parseInt(args[0]);
 							maxval = Integer.parseInt(args[1]) - minval + 1;
-							rollResult = minval + (int) (Math.random() * maxval);
-							Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "Console rolled a " + Integer.toString(rollResult) + "! (" + minval + "-" + Integer.toString(maxval+minval-1) + ")");
-						}
-						else {
-							sender.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
-						}
+							if(minval > maxval + minval -1) {
+								sender.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
+							}
+							else {
+								rollResult = minval + (int) (Math.random() * maxval);
+								Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "Console rolled a " + Integer.toString(rollResult) + "! (" + minval + "-" + Integer.toString(maxval+minval-1) + ")");
+							}
 					}
 					else
 						sender.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
@@ -79,14 +79,14 @@ public class GlobalRoll implements CommandExecutor  {
 					
 					if (args.length == 2) {
 						if (isNum(args[0]) && isNum(args[1])) {
-							if (Integer.parseInt(args[0]) > Integer.parseInt(args[1])) {
-								minval = Integer.parseInt(args[0]);
-								maxval = Integer.parseInt(args[1]) - minval + 1;
-								rollResult = minval + (int) (Math.random() * maxval);
-								Bukkit.getServer().broadcastMessage(ChatColor.GOLD + player.getName() + " rolled a " + Integer.toString(rollResult) + "! (" + minval + "-" + Integer.toString(maxval+minval-1) + ")");
+							minval = Integer.parseInt(args[0]);
+							maxval = Integer.parseInt(args[1]) - minval + 1;
+							if(minval > maxval + minval -1) {
+								player.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
 							}
 							else {
-								player.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
+								rollResult = minval + (int) (Math.random() * maxval);
+								Bukkit.getServer().broadcastMessage(ChatColor.GOLD + player.getName() + " rolled a " + Integer.toString(rollResult) + "! (" + minval + "-" + Integer.toString(maxval+minval-1) + ")");
 							}
 						}
 						else

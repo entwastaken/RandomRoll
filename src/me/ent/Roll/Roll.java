@@ -40,14 +40,14 @@ public class Roll implements CommandExecutor  {
 				// /roll (/randominteger) <min> <max> - Rolls a random number between two given values.
 				if (args.length == 2) {
 					if (isNum(args[0]) && isNum(args[1])) {
-						if (Integer.parseInt(args[0]) > Integer.parseInt(args[1])) {
-							minval = Integer.parseInt(args[0]);
-							maxval = Integer.parseInt(args[1]) - minval + 1;
-							rollResult = minval + (int) (Math.random() * maxval);
-							player.sendMessage(ChatColor.GOLD + "Rolled a " + Integer.toString(rollResult) + "!");
+						minval = Integer.parseInt(args[0]);
+						maxval = Integer.parseInt(args[1]) - minval + 1;
+						if(minval > maxval + minval -1) {
+							player.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
 						}
 						else {
-							player.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
+							rollResult = minval + (int) (Math.random() * maxval);
+							player.sendMessage(ChatColor.GOLD + "Rolled a " + Integer.toString(rollResult) + "!");
 						}
 					}
 					else
@@ -82,14 +82,14 @@ public class Roll implements CommandExecutor  {
 				// /roll (/randominteger) <min> <max> - Rolls a random number between two given values.
 				if (args.length == 2) {
 					if (isNum(args[0]) && isNum(args[1])) {
-						if (Integer.parseInt(args[0]) > Integer.parseInt(args[1])) {
-							minval = Integer.parseInt(args[0]);
-							maxval = Integer.parseInt(args[1]) - minval + 1;
-							rollResult = minval + (int) (Math.random() * maxval);
-							sender.sendMessage(ChatColor.GOLD + "Rolled a " + Integer.toString(rollResult) + "!");
+						minval = Integer.parseInt(args[0]);
+						maxval = Integer.parseInt(args[1]) - minval + 1;
+						if(minval > maxval + minval -1) {
+							sender.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
 						}
 						else {
-							sender.sendMessage(ChatColor.DARK_RED + "Usage: /roll <min-value> <max-value>");
+							rollResult = minval + (int) (Math.random() * maxval);
+							sender.sendMessage(ChatColor.GOLD + "Rolled a " + Integer.toString(rollResult) + "!");
 						}
 					}
 					else
@@ -110,6 +110,6 @@ public class Roll implements CommandExecutor  {
 			return false;
 		}
 		return true;
-	}
+		}
 		
 }
