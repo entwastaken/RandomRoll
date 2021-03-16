@@ -1,0 +1,18 @@
+main: me.ent.Roll.Main
+name: entsRandomRoll
+version: 1.0.0
+author: ent (https://www.spigotmc.org/members/reality.310769)
+api-version: 1.16
+
+commands:
+  roll:
+    aliases: randominteger
+    description: Rolls a random number (def. 1-100).
+    usage: /roll or /roll <number> or /roll <min> <max>
+  globalroll:
+    description: Rolls a random number, then broadcasts it in chat publicly (def. 1-100).
+    usage: /globalroll or /globalroll <number> or /globalroll <min> <max>
+permissions:
+  randomroll.globalroll:
+    description: Allows usage of /globalroll
+    default: op
